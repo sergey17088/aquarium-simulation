@@ -1,0 +1,318 @@
+
+textures.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+blockedButton190
+  rotate: false
+  xy: 516, 145
+  size: 427, 190
+  orig: 427, 190
+  offset: 0, 0
+  index: -1
+female
+  rotate: false
+  xy: 931, 902
+  size: 90, 90
+  orig: 90, 90
+  offset: 0, 0
+  index: -1
+font20
+  rotate: false
+  xy: 2, 13
+  size: 512, 64
+  orig: 512, 64
+  offset: 0, 0
+  index: -1
+font50
+  rotate: false
+  xy: 2, 79
+  size: 512, 256
+  orig: 512, 256
+  offset: 0, 0
+  index: -1
+mainMenuPanel
+  rotate: false
+  xy: 2, 337
+  size: 927, 655
+  orig: 927, 655
+  offset: 0, 0
+  index: -1
+male
+  rotate: false
+  xy: 931, 810
+  size: 90, 90
+  orig: 90, 90
+  offset: 0, 0
+  index: -1
+tabPanel
+  rotate: false
+  xy: 516, 2
+  size: 427, 141
+  orig: 427, 141
+  offset: 0, 0
+  index: -1
+
+textures2.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+bigFish
+  rotate: false
+  xy: 431, 504
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+blockedAddingButton
+  rotate: false
+  xy: 860, 142
+  size: 96, 100
+  orig: 96, 100
+  offset: 0, 0
+  index: -1
+blockedButton100
+  rotate: false
+  xy: 2, 2
+  size: 225, 100
+  orig: 225, 100
+  offset: 0, 0
+  index: -1
+blockedInformationButton
+  rotate: false
+  xy: 910, 40
+  size: 96, 100
+  orig: 96, 100
+  offset: 0, 0
+  index: -1
+blockedSquareButton128
+  rotate: false
+  xy: 860, 374
+  size: 123, 128
+  orig: 123, 128
+  offset: 0, 0
+  index: -1
+hoverButton100
+  rotate: false
+  xy: 229, 2
+  size: 225, 100
+  orig: 225, 100
+  offset: 0, 0
+  index: -1
+hoverButton190
+  rotate: false
+  xy: 2, 104
+  size: 427, 190
+  orig: 427, 190
+  offset: 0, 0
+  index: -1
+hoverSquareButton128
+  rotate: false
+  xy: 860, 244
+  size: 123, 128
+  orig: 123, 128
+  offset: 0, 0
+  index: -1
+normalButton100
+  rotate: false
+  xy: 456, 18
+  size: 225, 100
+  orig: 225, 100
+  offset: 0, 0
+  index: -1
+normalButton190
+  rotate: false
+  xy: 431, 312
+  size: 427, 190
+  orig: 427, 190
+  offset: 0, 0
+  index: -1
+pressedButton100
+  rotate: false
+  xy: 683, 18
+  size: 225, 100
+  orig: 225, 100
+  offset: 0, 0
+  index: -1
+pressedButton190
+  rotate: false
+  xy: 431, 120
+  size: 427, 190
+  orig: 427, 190
+  offset: 0, 0
+  index: -1
+sidebar
+  rotate: false
+  xy: 2, 296
+  size: 427, 720
+  orig: 427, 720
+  offset: 0, 0
+  index: -1
+
+textures3.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+blockedReviewButton
+  rotate: false
+  xy: 641, 329
+  size: 96, 100
+  orig: 96, 100
+  offset: 0, 0
+  index: -1
+blockedSettingButton
+  rotate: false
+  xy: 739, 329
+  size: 96, 100
+  orig: 96, 100
+  offset: 0, 0
+  index: -1
+contextPanel
+  rotate: false
+  xy: 516, 431
+  size: 427, 547
+  orig: 427, 547
+  offset: 0, 0
+  index: -1
+fish
+  rotate: false
+  xy: 2, 466
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+font22
+  rotate: false
+  xy: 204, 206
+  size: 256, 128
+  orig: 256, 128
+  offset: 0, 0
+  index: -1
+font30
+  rotate: false
+  xy: 2, 336
+  size: 512, 128
+  orig: 512, 128
+  offset: 0, 0
+  index: -1
+hoverAddingButton
+  rotate: false
+  xy: 837, 329
+  size: 96, 100
+  orig: 96, 100
+  offset: 0, 0
+  index: -1
+hoverInformationButton
+  rotate: false
+  xy: 127, 32
+  size: 95, 100
+  orig: 95, 100
+  offset: 0, 0
+  index: -1
+hoverReviewButton
+  rotate: false
+  xy: 462, 199
+  size: 96, 100
+  orig: 96, 100
+  offset: 0, 0
+  index: -1
+hoverSettingButton
+  rotate: false
+  xy: 560, 199
+  size: 96, 100
+  orig: 96, 100
+  offset: 0, 0
+  index: -1
+iconPanel
+  rotate: false
+  xy: 2, 134
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+normalAddingButton
+  rotate: false
+  xy: 658, 227
+  size: 96, 100
+  orig: 96, 100
+  offset: 0, 0
+  index: -1
+normalInformationButton
+  rotate: false
+  xy: 854, 227
+  size: 95, 100
+  orig: 95, 100
+  offset: 0, 0
+  index: -1
+normalReviewButton
+  rotate: false
+  xy: 756, 227
+  size: 96, 100
+  orig: 96, 100
+  offset: 0, 0
+  index: -1
+normalSettingButton
+  rotate: false
+  xy: 224, 104
+  size: 96, 100
+  orig: 96, 100
+  offset: 0, 0
+  index: -1
+normalSquareButton128
+  rotate: false
+  xy: 2, 4
+  size: 123, 128
+  orig: 123, 128
+  offset: 0, 0
+  index: -1
+pressedAddingButton
+  rotate: false
+  xy: 322, 104
+  size: 96, 100
+  orig: 96, 100
+  offset: 0, 0
+  index: -1
+pressedInformationButton
+  rotate: false
+  xy: 420, 97
+  size: 95, 100
+  orig: 95, 100
+  offset: 0, 0
+  index: -1
+pressedReviewButton
+  rotate: false
+  xy: 224, 2
+  size: 96, 100
+  orig: 96, 100
+  offset: 0, 0
+  index: -1
+pressedSettingButton
+  rotate: false
+  xy: 322, 2
+  size: 96, 100
+  orig: 96, 100
+  offset: 0, 0
+  index: -1
+pressedSquareButton128
+  rotate: false
+  xy: 516, 301
+  size: 123, 128
+  orig: 123, 128
+  offset: 0, 0
+  index: -1
+
+textures4.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+smallFish
+  rotate: false
+  xy: 2, 2
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1

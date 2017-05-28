@@ -1,0 +1,77 @@
+{
+    com.badlogic.gdx.graphics.Color: {
+        white: {
+            r: 1, g: 1, b: 1, a: 1
+        }
+    },
+
+    com.badlogic.gdx.graphics.g2d.BitmapFont: {
+        font20: {
+            file: font20.fnt
+        },
+        font22: {
+            file: font22.fnt
+        },
+        font30: {
+            file: font30.fnt
+        },
+        font50: {
+            file: font50.fnt
+        }
+    },
+
+    com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
+        label20: {
+            font: font20, fontColor: white
+        },
+        label22: {
+            font: font22, fontColor: white
+        },
+        label30: {
+            font: font30, fontColor: white
+        },
+        label50: {
+            font: font50, fontColor: white
+        }
+    },
+
+    com.aquariumsimulation.view.ui.buttons.ButtonWithThreeState$ButtonWithThreeStateStyle: {
+        button100: {
+            normalButton: normalButton100, hoverButton: hoverButton100, pressedButton: pressedButton100
+        },
+        button190: {
+            normalButton: normalButton190, hoverButton: hoverButton190, pressedButton: pressedButton190
+        }
+    },
+
+    com.aquariumsimulation.view.ui.buttons.ButtonWithFourState$ButtonWithFourStateStyle: {
+        button100: {
+            normalButton: normalButton100, hoverButton: hoverButton100,
+            pressedButton: pressedButton100, blockedButton: blockedButton100
+        },
+        button190: {
+            normalButton: normalButton190, hoverButton: hoverButton190,
+            pressedButton: pressedButton190, blockedButton: blockedButton190
+        },
+        squareButton128: {
+            normalButton: normalSquareButton128, hoverButton: hoverSquareButton128,
+            pressedButton: pressedSquareButton128, blockedButton: blockedSquareButton128
+        },
+        informationButton: {
+            normalButton: normalInformationButton, hoverButton: hoverInformationButton,
+            pressedButton: pressedInformationButton, blockedButton: blockedInformationButton
+        },
+        settingButton: {
+            normalButton: normalSettingButton, hoverButton: hoverSettingButton,
+            pressedButton: pressedSettingButton, blockedButton: blockedSettingButton
+        },
+        addingButton: {
+            normalButton: normalAddingButton, hoverButton: hoverAddingButton,
+            pressedButton: pressedAddingButton, blockedButton: blockedAddingButton
+        },
+        reviewButton: {
+            normalButton: normalReviewButton, hoverButton: hoverReviewButton,
+            pressedButton: pressedReviewButton, blockedButton: blockedReviewButton
+        }
+    }
+}
