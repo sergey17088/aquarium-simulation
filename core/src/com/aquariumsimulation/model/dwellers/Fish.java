@@ -22,7 +22,7 @@ public final class Fish extends EdibleAquariumDweller {
     private static final int MAX_AGE = 600;
 
     private static final int SPEED_PER_SECOND = 200;
-    private static final float COEFFICIENT_OF_GROWTH_PER_SECOND = 0.1f;
+    private static final float COEFFICIENT_OF_GROWTH_PER_SECOND = 0.05f;
     private static final int MAX_SATURATION_PER_SECOND = 10;
     private static final int MIN_TIME_BETWEEN_REPRODUCTION = 60;
     private static final int DURATION_OF_REPRODUCTION = 6;

@@ -22,7 +22,7 @@ public final class BigFish extends AquariumDweller {
     private static final int MAX_AGE = 900;
 
     private static final int SPEED_PER_SECOND = 100;
-    private static final float COEFFICIENT_OF_GROWTH_PER_SECOND = 0.1f;
+    private static final float COEFFICIENT_OF_GROWTH_PER_SECOND = 0.05f;
     private static final int MAX_SATURATION_PER_SECOND = 15;
     private static final int MIN_TIME_BETWEEN_REPRODUCTION = 120;
     private static final int DURATION_OF_REPRODUCTION = 9;
