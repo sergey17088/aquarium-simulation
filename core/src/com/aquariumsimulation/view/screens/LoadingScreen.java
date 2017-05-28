@@ -5,7 +5,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.BitmapFontLoader;
-import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -45,6 +51,8 @@ public final class LoadingScreen extends ScreenAdapter {
         assetManager.load("font22.fnt", BitmapFont.class, bitmapFontParameter);
         assetManager.load("font30.fnt", BitmapFont.class, bitmapFontParameter);
         assetManager.load("font50.fnt", BitmapFont.class, bitmapFontParameter);
+        assetManager.load("clickSound.wav", Sound.class);
+        assetManager.load("music.mp3", Music.class);
 
         viewport.apply(true);
     }

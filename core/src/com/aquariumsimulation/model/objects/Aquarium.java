@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Map;
 
 public final class Aquarium {
-    private final Map<Class<? extends AquariumObject>, AquariumObjectFactory> aquariumObjectFactories =
-            new HashMap<Class<? extends AquariumObject>, AquariumObjectFactory>();
+    private final Map<Class<? extends AquariumObjectImpl>, AquariumObjectFactory> aquariumObjectFactories =
+            new HashMap<Class<? extends AquariumObjectImpl>, AquariumObjectFactory>();
     {
 
     }
@@ -41,12 +41,12 @@ public final class Aquarium {
         });
     }
 
-    private final List<AquariumObject> aquariumObjects = new ArrayList<AquariumObject>();
+    private final List<AquariumObjectImpl> aquariumObjectImpls = new ArrayList<AquariumObjectImpl>();
     private final List<AquariumDweller> aquariumDwellers = new ArrayList<AquariumDweller>();
     private final List<Food> foods = new ArrayList<Food>();
 
-    private final List<AquariumObject> aquariumObjectsForCreating = new ArrayList<AquariumObject>();
-    private final List<AquariumObject> aquariumObjectsForDestroy = new ArrayList<AquariumObject>();
+    private final List<AquariumObjectImpl> aquariumObjectsForCreatingImpl = new ArrayList<AquariumObjectImpl>();
+    private final List<AquariumObjectImpl> aquariumObjectsForDestroyImpl = new ArrayList<AquariumObjectImpl>();
 
     private final int width;
     private final int height;
@@ -64,78 +64,86 @@ public final class Aquarium {
         return height;
     }
 
+    public List<AquariumDweller> getAquariumDwellers() {
+        return aquariumDwellers;
+    }
+
+    public List<Food> getFoods() {
+        return foods;
+    }
+
     public void update(float delta) {
-        for (AquariumObject aquariumObject : aquariumObjects) {
-            aquariumObject.update(delta);
+        for (AquariumObjectImpl aquariumObjectImpl : aquariumObjectImpls) {
+            aquariumObjectImpl.update(delta);
         }
     }
 
-    public void addAquariumObject(Class<? extends AquariumObject> aquariumObjectType, float x, float y) {
+    public void addAquariumObject(Class<? extends AquariumObjectImpl> aquariumObjectType, float x, float y) {
         if (aquariumObjectFactories.containsKey(aquariumObjectType)) {
-            aquariumObjectsForCreating.add(aquariumObjectFactories.get(aquariumObjectType).create(x, y));
+            aquariumObjectsForCreatingImpl.add(aquariumObjectFactories.get(aquariumObjectType).create(x, y));
         }
     }
 
     public void addAquariumDweller(Class<? extends AquariumDweller> aquariumDwellerType, float x, float y,
-                                      AquariumDweller.Gender gender) {
+                                   AquariumDweller.Gender gender) {
         if (aquariumDwellerFactories.containsKey(aquariumDwellerType)) {
-            aquariumObjectsForCreating.add(aquariumDwellerFactories.get(aquariumDwellerType).create(x, y, gender));
+            aquariumObjectsForCreatingImpl.add(aquariumDwellerFactories.get(aquariumDwellerType).create(x, y, gender));
         }
     }
 
-    public void removeAquariumObject(AquariumObject aquariumObject) {
-        if (aquariumObjects.contains(aquariumObject)) {
-            aquariumObjectsForDestroy.add(aquariumObject);
+    public void removeAquariumObject(AquariumObjectImpl aquariumObjectImpl) {
+        if (aquariumObjectImpls.contains(aquariumObjectImpl)) {
+            aquariumObjectsForDestroyImpl.add(aquariumObjectImpl);
         }
     }
 
     public boolean isAvailableAquariumObjectsForCreating() {
-        return aquariumObjectsForCreating.size() > 0;
+        return aquariumObjectsForCreatingImpl.size() > 0;
     }
 
-    public List<AquariumObject> createAquariumObjects() {
-        for (AquariumObject aquariumObject : aquariumObjectsForCreating) {
-            aquariumObjects.add(aquariumObject);
-            checkAquariumObjectWhenAdding(aquariumObject);
+    public List<AquariumObjectImpl> createAquariumObjects() {
+        for (AquariumObjectImpl aquariumObjectImpl : aquariumObjectsForCreatingImpl) {
+            aquariumObjectImpls.add(aquariumObjectImpl);
+            checkAquariumObjectWhenAdding(aquariumObjectImpl);
         }
-        return aquariumObjectsForCreating;
+        return aquariumObjectsForCreatingImpl;
     }
 
     public void clearAquariumObjectsForCreating() {
-        aquariumObjectsForCreating.clear();
+        aquariumObjectsForCreatingImpl.clear();
     }
 
     public boolean isAvailableAquariumObjectsForDestroy() {
-        return aquariumObjectsForDestroy.size() > 0;
+        return aquariumObjectsForDestroyImpl.size() > 0;
     }
 
-    public List<AquariumObject> destroyAquariumObjects() {
-        for (AquariumObject aquariumObject : aquariumObjectsForDestroy) {
-            aquariumObjects.remove(aquariumObject);
-            checkAquariumObjectWhenRemoving(aquariumObject);
+    public List<AquariumObjectImpl> destroyAquariumObjects() {
+        for (AquariumObjectImpl aquariumObjectImpl : aquariumObjectsForDestroyImpl) {
+            aquariumObjectImpls.remove(aquariumObjectImpl);
+            checkAquariumObjectWhenRemoving(aquariumObjectImpl);
         }
-        return aquariumObjectsForDestroy;
+        return aquariumObjectsForDestroyImpl;
     }
 
     public void clearAquariumObjectsForDestroy() {
-        aquariumObjectsForDestroy.clear();
+        aquariumObjectsForDestroyImpl.clear();
     }
 
-    private void checkAquariumObjectWhenAdding(AquariumObject aquariumObject) {
-        if (aquariumObject instanceof AquariumDweller) {
-            aquariumDwellers.add((AquariumDweller) aquariumObject);
+    private void checkAquariumObjectWhenAdding(AquariumObjectImpl aquariumObjectImpl) {
+        if (aquariumObjectImpl instanceof AquariumDweller) {
+            aquariumDwellers.add((AquariumDweller) aquariumObjectImpl);
         }
-        if (aquariumObject instanceof Food) {
-            foods.add((Food) aquariumObject);
+        if (aquariumObjectImpl instanceof Food) {
+            foods.add((Food) aquariumObjectImpl);
         }
     }
 
-    private void checkAquariumObjectWhenRemoving(AquariumObject aquariumObject) {
-        if (aquariumObject instanceof AquariumDweller) {
-            aquariumDwellers.remove(aquariumObject);
+    private void checkAquariumObjectWhenRemoving(AquariumObjectImpl aquariumObjectImpl) {
+        if (aquariumObjectImpl instanceof AquariumDweller) {
+            aquariumDwellers.remove(aquariumObjectImpl);
         }
-        if (aquariumObject instanceof Food) {
-            foods.remove(aquariumObject);
+        if (aquariumObjectImpl instanceof Food) {
+            foods.remove(aquariumObjectImpl);
         }
     }
 }

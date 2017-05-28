@@ -8,24 +8,24 @@ import java.util.HashSet;
 import java.util.Set;
 
 public final class BigFish extends AquariumDweller {
-    private static final int INITIAL_WIDTH = 512;
-    private static final int INITIAL_HEIGHT = 512;
+    private static final int INITIAL_WIDTH = 256;
+    private static final int INITIAL_HEIGHT = 256;
     private static final int MAX_WIDTH = 512;
     private static final int MAX_HEIGHT = 512;
 
     private static final String TYPE = "Big Fish";
     private static final String ICON_NAME = "bigFish";
 
-    private static final int MAX_HEALTH = 100;
-    private static final int MAX_ENERGY = 100;
-    private static final int MAX_SATIETY = 100;
-    private static final int MAX_AGE = 100;
+    private static final int MAX_HEALTH = 300;
+    private static final int MAX_ENERGY = 450;
+    private static final int MAX_SATIETY = 300;
+    private static final int MAX_AGE = 900;
 
-    private static final int SPEED_PER_SECOND = 200;
+    private static final int SPEED_PER_SECOND = 100;
     private static final float COEFFICIENT_OF_GROWTH_PER_SECOND = 0.1f;
-    private static final int MAX_SATURATION_PER_SECOND = 5;
-    private static final int MIN_TIME_BETWEEN_REPRODUCTION = 20;
-    private static final int DURATION_OF_REPRODUCTION = 3;
+    private static final int MAX_SATURATION_PER_SECOND = 15;
+    private static final int MIN_TIME_BETWEEN_REPRODUCTION = 120;
+    private static final int DURATION_OF_REPRODUCTION = 9;
 
     private static final Set<Class<? extends Food>> RATION = new HashSet<Class<? extends Food>>();
     static {

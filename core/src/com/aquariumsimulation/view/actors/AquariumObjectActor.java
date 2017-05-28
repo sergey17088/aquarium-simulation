@@ -1,6 +1,6 @@
 package com.aquariumsimulation.view.actors;
 
-import com.aquariumsimulation.model.objects.AquariumObject;
+import com.aquariumsimulation.model.objects.AquariumObjectImpl;
 import com.aquariumsimulation.view.screens.GameScreen;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -12,40 +12,38 @@ import com.badlogic.gdx.utils.Align;
 
 public class AquariumObjectActor extends Actor {
     private final GameScreen gameScreen;
-    private final AquariumObject aquariumObject;
+    private final AquariumObjectImpl aquariumObjectImpl;
     private final Sprite sprite;
 
-    public AquariumObjectActor(GameScreen gameScreen, AquariumObject aquariumObject) {
+    public AquariumObjectActor(GameScreen gameScreen, AquariumObjectImpl aquariumObjectImpl) {
         this.gameScreen = gameScreen;
-        this.aquariumObject = aquariumObject;
+        this.aquariumObjectImpl = aquariumObjectImpl;
 
         final TextureAtlas textureAtlas = gameScreen.getAquariumSimulation().getAssetManager().get("textures.atlas");
-        sprite = new Sprite(textureAtlas.findRegion(aquariumObject.getIconName()));
+        sprite = new Sprite(textureAtlas.findRegion(aquariumObjectImpl.getIconName()));
 
         updateSizes();
         updatePositions();
 
         addTapListener();
-
-        setDebug(true);
     }
 
     private void addTapListener() {
         addListener(new ActorGestureListener() {
             @Override
             public void tap(InputEvent event, float x, float y, int count, int button) {
-                gameScreen.getController().selectAquariumObject(aquariumObject);
+                gameScreen.getController().selectAquariumObject(aquariumObjectImpl);
             }
         });
     }
 
     private void updateSizes() {
-        setSize(aquariumObject.getWidth(), aquariumObject.getHeight());
+        setSize(aquariumObjectImpl.getWidth(), aquariumObjectImpl.getHeight());
         sprite.setSize(getWidth(), getHeight());
     }
 
     private void updatePositions() {
-        setPosition(aquariumObject.getX(), aquariumObject.getY(), Align.center);
+        setPosition(aquariumObjectImpl.getX(), aquariumObjectImpl.getY(), Align.center);
         sprite.setPosition(getX(Align.bottomLeft), getY(Align.bottomLeft));
     }
 
@@ -53,7 +51,7 @@ public class AquariumObjectActor extends Actor {
         setOrigin(Align.center);
         sprite.setOriginCenter();
 
-        final float rotation = getAquariumObject().getRotation();
+        final float rotation = getAquariumObjectImpl().getRotation();
 
         setRotation(rotation);
         sprite.setRotation(rotation);
@@ -64,8 +62,8 @@ public class AquariumObjectActor extends Actor {
         }
     }
 
-    public AquariumObject getAquariumObject() {
-        return aquariumObject;
+    public AquariumObjectImpl getAquariumObjectImpl() {
+        return aquariumObjectImpl;
     }
 
     @Override

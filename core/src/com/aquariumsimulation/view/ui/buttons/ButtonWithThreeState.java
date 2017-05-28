@@ -1,5 +1,6 @@
 package com.aquariumsimulation.view.ui.buttons;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -11,14 +12,17 @@ import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 public class ButtonWithThreeState extends Group {
     protected final ButtonWithThreeStateStyle style;
     protected Drawable background;
+    private final Sound clickSound;
 
     public static class ButtonWithThreeStateStyle {
         protected Drawable normalButton, hoverButton, pressedButton;
     }
 
-    public ButtonWithThreeState(float x, float y, float width, float height, int align, Skin skin, String styleName) {
+    public ButtonWithThreeState(float x, float y, float width, float height, int align, Skin skin, String styleName,
+                                Sound clickSound) {
         style = skin.get(styleName, getStyleClass());
         background = style.normalButton;
+        this.clickSound = clickSound;
 
         setSize(width, height);
         setPosition(x, y, align);
@@ -41,6 +45,7 @@ public class ButtonWithThreeState extends Group {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 background = style.normalButton;
+                clickSound.play();
             }
 
             @Override

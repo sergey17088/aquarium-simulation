@@ -7,6 +7,7 @@ import com.aquariumsimulation.view.ui.buttons.ButtonWithFourState;
 import com.aquariumsimulation.view.ui.buttons.ButtonWithThreeStateAndText;
 import com.aquariumsimulation.view.ui.contexts.AddingContext;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -23,6 +24,7 @@ public final class AddingPanel extends Group {
     private final InformationAboutAquariumDwellerAtAdding informationAboutAquariumDwellerAtAdding;
     private final TextureAtlas textureAtlas;
     private final Skin skin;
+    private final Sound clickSound;
 
     private static final int INDENT = 10;
     private static final int ICON_PANEL_WIDTH = 200;
@@ -70,6 +72,7 @@ public final class AddingPanel extends Group {
         this.informationAboutAquariumDwellerAtAdding = informationAboutAquariumDwellerAtAdding;
         textureAtlas = gameScreen.getAquariumSimulation().getAssetManager().get("textures.atlas");
         skin = new Skin(Gdx.files.internal("styles.json"), textureAtlas);
+        clickSound = gameScreen.getAquariumSimulation().getAssetManager().get("clickSound.wav");
 
         setSize(AddingContext.ADDING_PANEL_WIDTH, AddingContext.ADDING_PANEL_HEIGHT);
 
@@ -91,7 +94,7 @@ public final class AddingPanel extends Group {
 
     private ButtonWithFourState createRadioButton(final String iconName, float x, final boolean isMale) {
         final ButtonWithFourState radioButton = new ButtonWithFourState(x, RADIO_BUTTON_Y, RADIO_BUTTON_WIDTH,
-                RADIO_BUTTON_HEIGHT, Align.center, skin, "squareButton128");
+                RADIO_BUTTON_HEIGHT, Align.center, skin, "squareButton128", clickSound);
 
         radioButton.addListener(new ActorGestureListener() {
             @Override
@@ -122,7 +125,7 @@ public final class AddingPanel extends Group {
     private void createAddingButton() {
         final ButtonWithThreeStateAndText buttonWithThreeStateAndText =
                 new ButtonWithThreeStateAndText(BUTTON_X, BUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT, Align.center,
-                        "Add", skin, "button100", "label30");
+                        "Add", skin, "button100", "label30", clickSound);
         addActor(buttonWithThreeStateAndText);
 
         buttonWithThreeStateAndText.addListener(new ActorGestureListener() {

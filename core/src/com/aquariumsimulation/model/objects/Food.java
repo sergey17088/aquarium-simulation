@@ -1,5 +1,5 @@
 package com.aquariumsimulation.model.objects;
 
-public interface Food {
-    float toBeEaten(int biteForceOfAquariumDweller);
+public interface Food extends AquariumObject {
+    float toBeEaten(float biteForceOfAquariumDweller);
 }

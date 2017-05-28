@@ -1,7 +1,7 @@
 package com.aquariumsimulation.model;
 
-import com.aquariumsimulation.model.objects.AquariumObject;
+import com.aquariumsimulation.model.objects.AquariumObjectImpl;
 
 public interface AquariumObjectFactory {
-    AquariumObject create(float x, float y);
+    AquariumObjectImpl create(float x, float y);
 }

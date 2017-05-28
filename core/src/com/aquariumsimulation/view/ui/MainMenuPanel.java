@@ -5,6 +5,7 @@ import com.aquariumsimulation.view.screens.MenuScreen;
 import com.aquariumsimulation.view.ui.buttons.ButtonWithThreeState;
 import com.aquariumsimulation.view.ui.buttons.ButtonWithThreeStateAndText;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -69,7 +70,8 @@ public final class MainMenuPanel extends Group {
 
         ButtonWithThreeState createButton(float y, String text) {
             return new ButtonWithThreeStateAndText(BUTTON_X, y, BUTTON_WIDTH, BUTTON_HEIGHT, Align.center,
-                    text, skin, "button190", "label50");
+                    text, skin, "button190", "label50",
+                    ((Sound) menuScreen.getAquariumSimulation().getAssetManager().get("clickSound.wav")));
         }
 
         void setupButtons() {

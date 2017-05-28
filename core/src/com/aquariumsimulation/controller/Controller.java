@@ -5,7 +5,7 @@ import com.aquariumsimulation.model.dwellers.Fish;
 import com.aquariumsimulation.model.dwellers.SmallFish;
 import com.aquariumsimulation.model.objects.Aquarium;
 import com.aquariumsimulation.model.objects.AquariumDweller;
-import com.aquariumsimulation.model.objects.AquariumObject;
+import com.aquariumsimulation.model.objects.AquariumObjectImpl;
 import com.aquariumsimulation.view.actors.AquariumObjectActor;
 import com.aquariumsimulation.view.screens.GameScreen;
 import com.aquariumsimulation.view.ui.InformationAboutAquariumObjectPanel;
@@ -49,11 +49,11 @@ public final class Controller {
 
     private void createAquariumObjects() {
         if (aquarium.isAvailableAquariumObjectsForCreating()) {
-            for (AquariumObject aquariumObject : aquarium.createAquariumObjects()) {
-                gameScreen.getAquariumActor().addActor(new AquariumObjectActor(gameScreen, aquariumObject));
-                if (aquariumObject instanceof AquariumDweller) {
+            for (AquariumObjectImpl aquariumObjectImpl : aquarium.createAquariumObjects()) {
+                gameScreen.getAquariumActor().addActor(new AquariumObjectActor(gameScreen, aquariumObjectImpl));
+                if (aquariumObjectImpl instanceof AquariumDweller) {
                     final InformationAboutAquariumDweller informationAboutAquariumDweller =
-                            new InformationAboutAquariumDweller((AquariumDweller) aquariumObject);
+                            new InformationAboutAquariumDweller((AquariumDweller) aquariumObjectImpl);
                     final InformationAboutAquariumObjectPanel informationAboutAquariumObjectPanel =
                             new InformationAboutAquariumObjectPanel(gameScreen, informationAboutAquariumDweller);
                     informationAboutAquariumObjects.put(informationAboutAquariumDweller,
@@ -68,9 +68,9 @@ public final class Controller {
 
     private void destroyAquariumObjects() {
         if (aquarium.isAvailableAquariumObjectsForDestroy()) {
-            for (AquariumObject aquariumObject : aquarium.destroyAquariumObjects()) {
+            for (AquariumObjectImpl aquariumObjectImpl : aquarium.destroyAquariumObjects()) {
                 for (AquariumObjectActor aquariumObjectActor : gameScreen.getAquariumActor().getAquariumObjectActors()) {
-                    if (aquariumObjectActor.getAquariumObject() == aquariumObject) {
+                    if (aquariumObjectActor.getAquariumObjectImpl() == aquariumObjectImpl) {
                         gameScreen.getAquariumActor().removeActor(aquariumObjectActor);
                         break;
                     }
@@ -78,7 +78,7 @@ public final class Controller {
 
                 for (InformationAboutAquariumObject informationAboutAquariumObject :
                         informationAboutAquariumObjects.keySet()) {
-                    if (informationAboutAquariumObject.getAquariumObject() == aquariumObject) {
+                    if (informationAboutAquariumObject.getAquariumObject() == aquariumObjectImpl) {
                         final InformationAboutAquariumObjectPanel informationAboutAquariumObjectPanel =
                                 informationAboutAquariumObjects.remove(informationAboutAquariumObject);
                         if (currentInformationAboutAquariumObjectPanel == informationAboutAquariumObjectPanel) {
@@ -98,12 +98,16 @@ public final class Controller {
         }
     }
 
+    private float getAquariumPosition(float size) {
+        return (float) (size * 0.1 + Math.random() * size * 0.8);
+    }
+
     public void createAquariumObject(InformationAboutAquariumObjectAtAdding informationAboutAquariumObjectAtAdding) {
         if (informationAboutAquariumObjectAtAdding instanceof InformationAboutAquariumDwellerAtAdding) {
             final InformationAboutAquariumDwellerAtAdding information =
                     ((InformationAboutAquariumDwellerAtAdding) informationAboutAquariumObjectAtAdding);
-            aquarium.addAquariumDweller(information.getKind(), aquarium.getWidth() / 2, aquarium.getHeight() / 2,
-                    information.getGender());
+            aquarium.addAquariumDweller(information.getKind(), getAquariumPosition(aquarium.getWidth()),
+                    getAquariumPosition(aquarium.getHeight()), information.getGender());
             information.clear();
         } else {
             aquarium.addAquariumObject(informationAboutAquariumObjectAtAdding.getKind(),
@@ -111,19 +115,19 @@ public final class Controller {
         }
     }
 
-    public void removeAquariumObject(AquariumObject aquariumObject) {
-        aquarium.removeAquariumObject(aquariumObject);
+    public void removeAquariumObject(AquariumObjectImpl aquariumObjectImpl) {
+        aquarium.removeAquariumObject(aquariumObjectImpl);
     }
 
-    public void selectAquariumObject(AquariumObject aquariumObject) {
+    public void selectAquariumObject(AquariumObjectImpl aquariumObjectImpl) {
         for (InformationAboutAquariumObject informationAboutAquariumObject : informationAboutAquariumObjects.keySet()) {
-            if (informationAboutAquariumObject.getAquariumObject() == aquariumObject) {
-                /*if (currentInformationAboutAquariumObjectPanel != null) {
+            if (informationAboutAquariumObject.getAquariumObject() == aquariumObjectImpl) {
+                if (currentInformationAboutAquariumObjectPanel != null) {
                     gameScreen.getSidebar().getTabPanel().getReviewContext().addActor(currentInformationAboutAquariumObjectPanel);
                 }
 
                 currentInformationAboutAquariumObjectPanel =
-                        informationAboutAquariumObjects.get(informationAboutAquariumObject);*/
+                        informationAboutAquariumObjects.get(informationAboutAquariumObject);
                 return;
             }
         }

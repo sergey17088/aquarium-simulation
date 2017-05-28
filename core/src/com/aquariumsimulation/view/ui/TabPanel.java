@@ -5,6 +5,7 @@ import com.aquariumsimulation.view.screens.GameScreen;
 import com.aquariumsimulation.view.ui.buttons.ButtonWithFourState;
 import com.aquariumsimulation.view.ui.contexts.*;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -80,7 +81,8 @@ public final class TabPanel extends Group {
     }
 
     private ButtonWithFourState createButton(float x, String styleName) {
-        return new ButtonWithFourState(x, BUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT, Align.center, skin, styleName);
+        return new ButtonWithFourState(x, BUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT, Align.center, skin,
+                styleName, ((Sound) gameScreen.getAquariumSimulation().getAssetManager().get("clickSound.wav")));
     }
 
     private void addContexts() {

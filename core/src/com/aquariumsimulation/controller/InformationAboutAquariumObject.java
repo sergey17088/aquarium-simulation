@@ -1,9 +1,9 @@
 package com.aquariumsimulation.controller;
 
-import com.aquariumsimulation.model.objects.AquariumObject;
+import com.aquariumsimulation.model.objects.AquariumObjectImpl;
 
 public interface InformationAboutAquariumObject {
-    AquariumObject getAquariumObject();
+    AquariumObjectImpl getAquariumObject();
 
     String getIconName();
 

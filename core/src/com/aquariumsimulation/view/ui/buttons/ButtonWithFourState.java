@@ -1,5 +1,6 @@
 package com.aquariumsimulation.view.ui.buttons;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -13,8 +14,9 @@ public class ButtonWithFourState extends ButtonWithThreeState {
         private Drawable blockedButton;
     }
 
-    public ButtonWithFourState(float x, float y, float width, float height, int align, Skin skin, String styleName) {
-        super(x, y, width, height, align, skin, styleName);
+    public ButtonWithFourState(float x, float y, float width, float height, int align, Skin skin,
+                               String styleName, Sound clickSound) {
+        super(x, y, width, height, align, skin, styleName, clickSound);
         style = ((ButtonWithFourStateStyle) super.style);
     }
 

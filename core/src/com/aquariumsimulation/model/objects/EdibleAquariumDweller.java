@@ -14,7 +14,7 @@ public abstract class EdibleAquariumDweller extends AquariumDweller implements F
     }
 
     @Override
-    public float toBeEaten(int biteForceOfAquariumDweller) {
+    public float toBeEaten(float biteForceOfAquariumDweller) {
         final float lossOfHealth;
         if (getHealth() > biteForceOfAquariumDweller) {
             setHealth(getHealth() - biteForceOfAquariumDweller);

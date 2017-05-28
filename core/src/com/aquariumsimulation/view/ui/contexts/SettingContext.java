@@ -8,6 +8,7 @@ import com.aquariumsimulation.view.ui.PositionHelper;
 import com.aquariumsimulation.view.ui.buttons.ButtonWithThreeState;
 import com.aquariumsimulation.view.ui.buttons.ButtonWithThreeStateAndText;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -57,7 +58,7 @@ public final class SettingContext extends Context {
 
     private ButtonWithThreeState createButton(float y, String text) {
         return new ButtonWithThreeStateAndText(BUTTON_X, y, BUTTON_WIDTH, BUTTON_HEIGHT, Align.center,
-                text, skin, "button100", "label30");
+                text, skin, "button100", "label30", ((Sound) aquariumSimulation.getAssetManager().get("clickSound.wav")));
     }
 
     private void setupButtons() {

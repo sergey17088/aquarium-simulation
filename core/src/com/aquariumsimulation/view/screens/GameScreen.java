@@ -8,6 +8,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -35,7 +36,7 @@ public final class GameScreen extends ScreenAdapter {
     public static final int SIDEBAR_Y = 0;
     private static final int AQUARIUM_WIDTH = WIDTH - SIDEBAR_WIDTH;
     private static final int AQUARIUM_HEIGHT = HEIGHT;
-    private static final int AQUARIUM_SCALE = 10;
+    private static final int AQUARIUM_SCALE = 5;
     public static final int AQUARIUM_WORLD_WIDTH = AQUARIUM_WIDTH * AQUARIUM_SCALE;
     public static final int AQUARIUM_WORLD_HEIGHT = AQUARIUM_HEIGHT * AQUARIUM_SCALE;
     public static final int AQUARIUM_X = 0;
@@ -43,7 +44,7 @@ public final class GameScreen extends ScreenAdapter {
 
     private static final float ZOOM_SPEED_FOR_MOUSE_WHEEL = 0.05f;
     private static final float ZOOM_SPEED_FOR_KEYBOARD = 0.01f;
-    private static final float ZOOM_SPEED_FOR_GESTURES = 0.005f;
+    private static final float ZOOM_SPEED_FOR_GESTURES = 0.01f;
     private static final int SHIFT_OF_CAMERA_FOR_KEYBOARD = 100;
 
     private final Camera camera = new OrthographicCamera();
@@ -55,10 +56,13 @@ public final class GameScreen extends ScreenAdapter {
     private final Stage stage = new Stage(viewport, spriteBatch);
     private final Stage aquariumStage = new Stage(aquariumViewport, spriteBatch);
 
+    private final Music music;
+
     public GameScreen(AquariumSimulation aquariumSimulation) {
         this.aquariumSimulation = aquariumSimulation;
         aquariumActor = new AquariumActor(this);
         sidebar = new Sidebar(this);
+        music = aquariumSimulation.getAssetManager().get("music.mp3");
     }
 
     public AquariumSimulation getAquariumSimulation() {
@@ -87,6 +91,9 @@ public final class GameScreen extends ScreenAdapter {
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, aquariumStage));
 
         setupAquariumStage();
+
+        music.play();
+        music.setLooping(true);
     }
 
     private void setupAquariumStage() {
@@ -214,5 +221,6 @@ public final class GameScreen extends ScreenAdapter {
         spriteBatch.dispose();
         stage.dispose();
         aquariumStage.dispose();
+        music.stop();
     }
 }
